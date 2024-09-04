@@ -24,46 +24,46 @@ void footer(int size) {
         cout << "              |";
         break;
       case 2:
-        cout << "             |";
+        cout << "              |";
         break;
       case 3:
-        cout << "            |";
+        cout << "             |";
         break;
       case 4:
-        cout << "           |";
+        cout << "            |";
         break;
       case 5:
-        cout << "          |";
+        cout << "           |";
         break;
       case 6:
-        cout << "         |";
+        cout << "          |";
         break;
       case 7:
-        cout << "        |";
+        cout << "         |";
         break;
       case 8:
-        cout << "       |";
+        cout << "        |";
         break;
       case 9:
-        cout << "      |";
+        cout << "       |";
         break;
       case 10:
-        cout << "     |";
+        cout << "      |";
         break;
       case 11:
-        cout << "    |";
+        cout << "     |";
         break;
       case 12:
-        cout << "   |";
+        cout << "    |";
         break;
       case 13:
-        cout << "  |";
+        cout << "   |";
         break;
       case 14:
-        cout << " |";
+        cout << "  |";
         break;
       case 15:
-        cout << "|";
+        cout << " |";
         break;
       default:
       break;
@@ -141,16 +141,16 @@ int main() {
 
     // Sorting out unrelated elements of the vector
     for (string cleaner : raw) {
-      if (cleaner == "." || cleaner == "," || cleaner == "0" || cleaner == "1" || cleaner == "2" || cleaner == "3" || cleaner == "4" || cleaner == "5" || cleaner == "6" || cleaner == "7" || cleaner == "8" || cleaner == "9" || cleaner == "+" || cleaner == "-" || cleaner == "*" || cleaner == "/") {
+      if (cleaner == "." || cleaner == "," || cleaner == "0" || cleaner == "1" || cleaner == "2" || cleaner == "3" || cleaner == "4" || cleaner == "5" || cleaner == "6" || cleaner == "7" || cleaner == "8" || cleaner == "9" || cleaner == "+" || cleaner == "-" || cleaner == "*" || cleaner == "/" || cleaner == "x") {
       sorted.push_back(cleaner);
       }
     }
         
-    while (sorted[sorted.size() - 1] == "+" || sorted[sorted.size() - 1] == "-" || sorted[sorted.size() - 1] == "*" || sorted[sorted.size() - 1] == "/") {
+    while (sorted[sorted.size() - 1] == "+" || sorted[sorted.size() - 1] == "-" || sorted[sorted.size() - 1] == "*" || sorted[sorted.size() - 1] == "x" || sorted[sorted.size() - 1] == "/") {
       sorted.pop_back();
     } 
         
-    while (sorted[0] == "+" || sorted[0] == "*" || sorted[0] == "/") {
+    while (sorted[0] == "+" || sorted[0] == "*" || sorted[0] == "x" || sorted[0] == "/") {
       sorted.erase(sorted.begin());
     }
     
@@ -160,8 +160,9 @@ int main() {
       negative = true;
     }
     
-    // Changing "," to "."
+    // Changing "," to "." and "x" to "*"
     replace(sorted.begin(), sorted.end(), ",", ".");
+    replace(sorted.begin(), sorted.end(), "x", "*");
 
     // Concatenating strings
     for (string strnum : sorted) {      //23.42+12.31  
@@ -222,9 +223,5 @@ int main() {
     }
   } while (input != "quit");
 }
-
-
-
-
 
 
