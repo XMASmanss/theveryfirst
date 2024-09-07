@@ -1,3 +1,5 @@
+// This program lets the user choose the board size and the condition to win.
+
 #include <iostream>
 #include <vector>
 
